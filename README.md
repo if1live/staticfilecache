@@ -1,2 +1,3 @@
 # staticfilecache
-golang-httpcache compatible human-readable static file cache
+[httpcache](https://github.com/gregjones/httpcache) compatible human-readable static file cache
+ 
