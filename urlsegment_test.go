@@ -40,6 +40,9 @@ func TestParseUrl(t *testing.T) {
 		{"../foo", UrlSegment{"", []string{}, "foo"}},
 		{"https://a.com/foo/../", UrlSegment{"a.com", []string{}, "index.html"}},
 		{"https://a.com/foo/../../", UrlSegment{"a.com", []string{}, "index.html"}},
+
+		// port num
+		{"http://127.0.0.1:1234", UrlSegment{"127.0.0.1_1234", []string{}, "index.html"}},
 	}
 	for _, c := range cases {
 		got, ok := ParseUrl(c.url)

@@ -45,6 +45,10 @@ func ParseUrl(rawurl string) (seg UrlSegment, ok bool) {
 	}
 
 	host := u.Host
+	if strings.Contains(host, ":") {
+		host = strings.Replace(host, ":", "_", -1)
+	}
+
 	baseurl := fmt.Sprintf("%s://%s", scheme, host)
 	base, err := url.Parse(baseurl)
 	if err != nil {
